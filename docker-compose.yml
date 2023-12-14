@@ -7,4 +7,27 @@ services:
     restart: always
     ports:
       - "8500:8500"
-    command: "consul agent -dev -client 0.0.0.0 -ui"
+    command: "consul agent -dev -client=0.0.0.0 -ui"
+    networks:
+      - myapp
+
+  config-service:
+    build: ./config-service
+    container_name: config-service
+    ports:
+      - "9999:9999"
+    expose:
+      - '9999'
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:9999/actuator/health" ]
+      interval: 10s
+      retries: 4
+    depends_on:
+      - consul-server
+    networks:
+      - myapp
+    environment:
+      - CONSUL_HOST=consul-server
+      - CONSUL_PORT=8500
+networks:
+  myapp:
