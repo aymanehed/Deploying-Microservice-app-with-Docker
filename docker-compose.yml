@@ -73,5 +73,27 @@ services:
       - CONFIG_SERVICE_URL=http://config-service:9999
 
 
+  order-service:
+    build: ./order-service
+    container_name: order-service
+    ports:
+      - "8083:8083"
+    expose:
+      - '8083'
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8083/actuator/health" ]
+      interval: 10s
+      retries: 4
+    depends_on:
+      customer-service:
+        condition: service_healthy
+      inventory-service:
+        condition: service_healthy
+    networks:
+      - myapp
+    environment:
+      - CONSUL_HOST=consul-server
+      - CONSUL_PORT=8500
+      - CONFIG_SERVICE_URL=http://config-service:9999
 networks:
   myapp:
