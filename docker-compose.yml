@@ -29,5 +29,26 @@ services:
     environment:
       - CONSUL_HOST=consul-server
       - CONSUL_PORT=8500
+
+  customer-service:
+    build: ./customer-service
+    container_name: customer-service
+    ports:
+      - "8081:8081"
+    expose:
+      - '8081'
+    healthcheck:
+      test: [ "CMD", "curl", "-f", "http://localhost:8081/actuator/health" ]
+      interval: 10s
+      retries: 4
+    depends_on:
+      config-service:
+        condition: service_healthy
+    networks:
+        - myapp
+    environment:
+      - CONSUL_HOST=consul-server
+      - CONSUL_PORT=8500
+      - CONFIG_SERVICE_URL=http://config-service:9999
 networks:
   myapp:
