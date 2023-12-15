@@ -5,7 +5,7 @@ Each container is a virtualized, isolated instance of an application that includ
 These containers are lightweight, portable and can run consistently in any environment that supports Docker, 
 such as on-premises systems, cloud servers or container clusters.
 ### About The App
-This app contains 5 microservices :
+This app contains 6 microservices :
 - Billing Service
 - Config Service
 - Customer Service
