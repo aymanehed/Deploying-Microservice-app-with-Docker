@@ -118,5 +118,18 @@ services:
       - CONSUL_HOST=consul-server
       - CONSUL_PORT=8500
       - CONFIG_SERVICE_URL=http://config-service:9999
+
+  vault:
+    image: vault:1.7.3
+    container_name: vault
+    ports:
+      - "8200:8200"
+    environment:
+      VAULT_DEV_ROOT_TOKEN_ID: "root"
+    #command: ["server", "-dev", "-dev-root-token-id=root", "-dev-listen-address=0.0.0.0:8200"]
+      command: "consul agent -dev -client=0.0.0.0 "
 networks:
   myapp:
+
+volumes:
+    vault-volume:
