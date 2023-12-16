@@ -1,6 +1,6 @@
 # Deploying Microservice App With Docker 
 ## What is Docker?
-ocker is a container platform that allows developers to package applications and their dependencies into units called “containers.” 
+Docker is a container platform that allows developers to package applications and their dependencies into units called “containers.” 
 Each container is a virtualized, isolated instance of an application that includes everything necessary for it to run independently. 
 These containers are lightweight, portable and can run consistently in any environment that supports Docker, 
 such as on-premises systems, cloud servers or container clusters.
