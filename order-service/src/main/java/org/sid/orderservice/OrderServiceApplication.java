@@ -35,8 +35,8 @@ public class OrderServiceApplication {
 							CustomerRestClientService customerRestClientService,
 							InventoryRestClientService inventoryRestClientService) {
 		return args -> {
-			List<Customer> customers = customerRestClientService.allCustomers().getContent().stream().toList(); // puisqu'on utilise page model on doit avoir le contenu
-			List<Product> products = inventoryRestClientService.allProducts().getContent().stream().toList();
+			List<Customer> customers = customerRestClientService.allCustomers();// puisqu'on utilise page model on doit avoir le contenu
+			List<Product> products = inventoryRestClientService.allProducts();
 
 
 			Random random = new Random();

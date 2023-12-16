@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
+
 @RestController
 public class OrderRestController {
     public OrderRestController(OrderRepository orderRepository, ProductItemRepository productItemRepository, InventoryRestClientService inventoryRestClientService, CustomerRestClientService customerRestClientService) {
@@ -25,15 +27,15 @@ public class OrderRestController {
     private InventoryRestClientService inventoryRestClientService;
     private CustomerRestClientService customerRestClientService;
 
-    @GetMapping("/fullOrder/{id}")
-    public Order getOrderByID(@PathVariable Long id) {
-        Order order = orderRepository.findById(id).get();
-        Customer customer = customerRestClientService.customerById(order.getCustomerId());
-        order.setCustomer(customer);
-        order.getProductItems().forEach(productItem -> {
-            Product product = inventoryRestClientService.productById(productItem.getProductId());
-            productItem.setProduct(product);
+    @GetMapping("/orders")
+    public List<Order> orderList() {
+        List<Order> orderList = orderRepository.findAll();
+        orderList.forEach(or -> {
+            or.setCustomer(customerRestClientService.customerById(or.getCustomerId()));
+            or.getProductItems().forEach(productItem -> {
+                productItem.setProduct(inventoryRestClientService.productById(productItem.getProductId()));
+            });
         });
-        return order;
+        return orderList;
     }
 }
