@@ -18,10 +18,9 @@ public class ProductItem {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private Long productId;
-
+private String productname;
     @Transient
     private Product product;
-    private double discount;
     private double price;
     private int quantity;
     @ManyToOne

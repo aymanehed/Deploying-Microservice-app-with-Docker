@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.sid.orderservice.enums.OrderStatus;
 import org.sid.orderservice.model.Customer;
+import org.sid.orderservice.model.Product;
 
 import java.util.Date;
 import java.util.List;
@@ -21,14 +22,9 @@ public class Order {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private Date createdAt;
-    private OrderStatus status;
-    private Long customerId;
-
+    private  Long productId;
     @Transient
-    private Customer customer;
+private Product product;
 
-    @OneToMany(mappedBy = "order")
-    private List<ProductItem> productItems;
 
 }

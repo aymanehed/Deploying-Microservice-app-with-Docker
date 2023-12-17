@@ -19,23 +19,19 @@ public class OrderRestController {
         this.orderRepository = orderRepository;
         this.productItemRepository = productItemRepository;
         this.inventoryRestClientService = inventoryRestClientService;
-        this.customerRestClientService = customerRestClientService;
+
     }
 
     private OrderRepository orderRepository;
     private ProductItemRepository productItemRepository;
     private InventoryRestClientService inventoryRestClientService;
-    private CustomerRestClientService customerRestClientService;
 
     @GetMapping("/orders")
     public List<Order> orderList() {
         List<Order> orderList = orderRepository.findAll();
         orderList.forEach(or -> {
-            or.setCustomer(customerRestClientService.customerById(or.getCustomerId()));
-            or.getProductItems().forEach(productItem -> {
-                productItem.setProduct(inventoryRestClientService.productById(productItem.getProductId()));
+            or.setProduct(inventoryRestClientService.productById(or.getProductId()));
             });
-        });
         return orderList;
     }
 }
