@@ -49,6 +49,10 @@ tight access control and recording a detailed audit log.
 <img width="818" alt="orders" src="https://github.com/aymanehed/Deploying-Microservice-app-with-Docker/assets/93987581/450e04b5-eb66-458f-bea9-a8ec15ef0c49">
 
 ## Frontend 
+### Default Page
+<img width="960" alt="acc" src="https://github.com/aymanehed/Deploying-Microservice-app-with-Docker/assets/93987581/8fbdbd7e-766f-4af6-8b95-aaa83b96655f">
+
+
 ### Home Component
 <img width="942" alt="home" src="https://github.com/aymanehed/Deploying-Microservice-app-with-Docker/assets/93987581/d4992235-2c5c-407b-a2f8-de57f411bb6a">
 
