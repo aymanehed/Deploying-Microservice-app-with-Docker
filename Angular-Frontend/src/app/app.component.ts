@@ -10,5 +10,5 @@ import {RouterLink, RouterOutlet} from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'Angular-frontend';
+  title = 'HappyDeal';
 }
