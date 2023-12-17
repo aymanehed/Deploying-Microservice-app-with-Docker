@@ -47,3 +47,17 @@ tight access control and recording a detailed audit log.
 
 ### Order Service 
 <img width="818" alt="orders" src="https://github.com/aymanehed/Deploying-Microservice-app-with-Docker/assets/93987581/450e04b5-eb66-458f-bea9-a8ec15ef0c49">
+
+## Frontend 
+### Home Component
+<img width="942" alt="home" src="https://github.com/aymanehed/Deploying-Microservice-app-with-Docker/assets/93987581/d4992235-2c5c-407b-a2f8-de57f411bb6a">
+
+### Customer Component
+<img width="960" alt="customer" src="https://github.com/aymanehed/Deploying-Microservice-app-with-Docker/assets/93987581/324d7c85-fb0f-4cff-8c78-e9847dcf0f8e">
+
+### Product Component
+<img width="960" alt="products" src="https://github.com/aymanehed/Deploying-Microservice-app-with-Docker/assets/93987581/12210c2c-493d-43e5-8afa-71a7a99b4300">
+
+### Order Component
+<img width="960" alt="product" src="https://github.com/aymanehed/Deploying-Microservice-app-with-Docker/assets/93987581/af70e484-df09-4a68-b30e-0f59230e862d">
+
