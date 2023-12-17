@@ -152,7 +152,15 @@ services:
       - VAULT_HOST=vault
       - VAULT_PORT=8200
       - VAULT_TOKEN=root
-  # Use a file to store the token in the volume
+
+  angularfrontend:
+    build: ./Angular-Frontend
+    container_name: angular-frontend
+    ports:
+      - '801:80'
+    expose:
+      - '80'
+
 
 networks:
   myapp:
